@@ -1,0 +1,61 @@
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    ports:
+      - "3000:8080"
+    environment:
+      - OPENAI_API_BASE_URL=http://pipelines:9099
+      - OPENAI_API_KEY=0p3n-w3bu!
+      - WEBUI_NAME=RAG WebUI
+    depends_on:
+      - pipelines
+      - ollama
+    volumes:
+      - ./data:/app/backend/data
+    restart: unless-stopped
+    networks:
+      - rag-network
+
+  pipelines:
+    image: ghcr.io/open-webui/pipelines:main
+    container_name: pipelines
+    ports:
+      - "9099:9099"
+    volumes:
+      - ./pipelines:/app/pipelines
+      - ./requirements.txt:/app/requirements.txt
+      - ./faiss_index_:/app/faiss_index_
+    environment:
+      - PIPELINES_REQUIREMENTS_PATH=/app/requirements.txt
+    depends_on:
+      - ollama
+    restart: unless-stopped
+    networks:
+      - rag-network
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+    networks:
+      - rag-network
+    # Optional: Add GPU support if you have NVIDIA GPU
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+volumes:
+  ollama_data:
+
+networks:
+  rag-network:
+    driver: bridge

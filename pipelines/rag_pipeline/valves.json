@@ -1,0 +1,1 @@
+{"embedding_model_name": "sentence-transformers/multi-qa-MiniLM-L6-cos-v1", "faiss_index_path": "/app/faiss_index_", "ollama_base_url": "http://ollama:11434", "ollama_model": "llama3.2:3b", "retrieval_k": 4, "score_threshold": 0.7, "fetch_k": 20, "device": "cpu"}
