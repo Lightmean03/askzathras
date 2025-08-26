@@ -30,6 +30,8 @@ docker exec ollama ollama pull llama3.2:3b
 
 # Access the web interface
 # Open http://localhost:3000 in your browser
+# Click signup if avalible and make account info(Reamber this)
+# If account is required use the info below
 # username: zathras@askzathras.com
 # password: Password1!
 ```
