@@ -95,7 +95,7 @@ docker exec ollama ollama list
 ![(https://github.com/Lightmean03/askzathras/blob/main/screenshots/login.png)]()
 
 
-![(https://github.com/Lightmean03/askzathras/blob/main/screenshots/pipelin.png)]()
+![screenshots/pipelin.png]()
 
 
 ![(https://github.com/Lightmean03/askzathras/blob/main/screenshots/example.png)]()
