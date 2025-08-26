@@ -50,7 +50,6 @@ rag-system/
 ├── requirements.txt             # Python dependencies
 ├── docker-compose.yml          # Docker services configuration
 ├── create_index.py             # Script to generate FAISS index
-├── setup-rag.ps1              # Setup script (optional)
 └── README.md                   # This file
 ```
 
