@@ -1,7 +1,8 @@
 # RAG System with OpenWebUI and Ollama
 
-A complete Retrieval-Augmented Generation (RAG) system using Docker Compose with OpenWebUI, Ollama, and a custom RAG pipeline for document question answering.
-
+A complete Retrieval-Augmented Generation (RAG) system using Docker Compose with OpenWebUI, Ollama, and a custom RAG pipeline for document question answering. This system was developed as a summer research project under Professor Michael O'Leary at Towson University for use with his Case Studies class textbook. The RAG system is specifically designed to help students in the cybersecurity track interact with course materials through intelligent question-answering capabilities.
+The included FAISS index file is built from Professor O'Leary's textbook and optimized for cybersecurity case study content. While the system includes tools to generate custom indexes from any PDF document, the primary use case is educational support for students enrolled in the Case Studies course. We encourage supporting Professor O'Leary's work by purchasing his textbook through official channels.
+Please note that the FAISS index file is provided solely for educational purposes within the course context. Any attempts to reverse engineer the index file with the intent to reconstruct or distribute the underlying textbook content would be inappropriate and potentially violate intellectual property rights. The system is designed to enhance learning while respecting the author's work.
 ## Table of Contents
 
 1. [Quick Start](#quick-start)
