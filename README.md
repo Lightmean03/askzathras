@@ -90,15 +90,11 @@ docker exec ollama ollama list
 3. Select "RAG Pipeline" from the model dropdown
 4. Start asking questions about your documents!
 
+<img width="1867" height="900" alt="login" src="https://github.com/user-attachments/assets/0c41cc0e-d540-4454-8bd2-62fe64ad9be7" />
 
+<img width="1602" height="917" alt="pipelin" src="https://github.com/user-attachments/assets/40d8bb81-b9a4-441a-83a6-b48e4e2541e2" />
 
-![(https://github.com/Lightmean03/askzathras/blob/main/screenshots/login.png)]()
-
-
-![screenshots/pipelin.png]()
-
-
-![(https://github.com/Lightmean03/askzathras/blob/main/screenshots/example.png)]()
+<img width="1907" height="980" alt="example" src="https://github.com/user-attachments/assets/ad8893d8-1ca6-46b9-a019-363a81083d98" />
 
 ## Configuration
 
