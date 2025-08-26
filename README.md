@@ -109,6 +109,7 @@ You can modify the RAG pipeline settings in `rag_pipeline.py` or in the pipeline
 - **`ollama_model`**: The Ollama model to use (default: `llama3.2:3b`)
 - **`retrieval_k`**: Number of documents to retrieve (default: 4)
 - **`score_threshold`**: Minimum similarity score (default: 0.7)
+<img width="1907" height="965" alt="conf" src="https://github.com/user-attachments/assets/615a1c4c-3d69-49b9-b696-ec0251aa3519" />
 
 ### Docker Services
 
