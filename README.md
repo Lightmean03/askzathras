@@ -92,13 +92,13 @@ docker exec ollama ollama list
 
 
 
-![[Screenshot placeholder - OpenWebUI interface](https://github.com/Lightmean03/askzathras/blob/main/screenshots/login.png)]()
+![(https://github.com/Lightmean03/askzathras/blob/main/screenshots/login.png)]()
 
 
-![[Screenshot placeholder - Model selection dropdown](https://github.com/Lightmean03/askzathras/blob/main/screenshots/pipelin.png)]()
+![(https://github.com/Lightmean03/askzathras/blob/main/screenshots/pipelin.png)]()
 
 
-![[Screenshot placeholder - RAG system in action](https://github.com/Lightmean03/askzathras/blob/main/screenshots/example.png)]()
+![(https://github.com/Lightmean03/askzathras/blob/main/screenshots/example.png)]()
 
 ## Configuration
 
