@@ -1,4 +1,5 @@
 langchain-ollama
+langchain
 langchain-huggingface
 langchain-community
 faiss-cpu
