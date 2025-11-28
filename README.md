@@ -158,7 +158,10 @@ The container system includes a pre-generated FAISS index for demonstration purp
 - Required Python packages (see requirements below)
 
 ### Step 1: Install Dependencies
-
+```bash
+    pip install -r requirements.txt
+```
+OR
 ```bash
 pip install langchain-ollama langchain langchain-community langchain-huggingface faiss-cpu sentence-transformers pypdf
 ```
