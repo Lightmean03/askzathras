@@ -22,7 +22,7 @@ cd pipeline_container
 # remove existing volume 
 docker volume rm pipeline_container_data
 # Start the system
-docker-compose up -d
+docker compose up -d
 
 # Wait for Ollama to start (about 30 seconds)
 # Then pull the required model
@@ -50,7 +50,7 @@ rag-system/
 ├── content/                     # Source documents for indexing
 │   └── book.pdf                 # Your PDF document
 ├── requirements.txt             # Python dependencies
-├── docker-compose.yml          # Docker services configuration
+├── docker compose.yml          # Docker services configuration
 ├── create_index.py             # Script to generate FAISS index
 └── README.md                   # This file
 ```
@@ -66,10 +66,10 @@ rag-system/
 
 ```bash
 # Start all containers
-docker-compose up -d
+docker compose up -d
 
 # Check that all containers are running
-docker-compose ps
+docker compose ps
 ```
 
 ### Step 2: Setup Ollama Model
@@ -122,30 +122,30 @@ You can modify the RAG pipeline settings in `rag_pipeline.py` or in the pipeline
 ### Starting the System
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 ### Stopping the System
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ### Restarting (keeps all data)
 
 ```bash
-docker-compose restart
+docker compose restart
 ```
 
 ### Checking Status
 
 ```bash
 # View running containers
-docker-compose ps
+docker compose ps
 
 # View logs
-docker-compose logs pipelines
-docker-compose logs ollama
+docker compose logs pipelines
+docker compose logs ollama
 ```
 
 ## Generating FAISS Index from PDF
@@ -200,7 +200,7 @@ To use a different document:
 1. **Replace the PDF**: Place your new PDF in the `content/` directory
 2. **Update the path**: Modify the file path in `create_index.py`
 3. **Regenerate index**: Run `python create_index.py`
-4. **Restart containers**: Run `docker-compose restart pipelines`
+4. **Restart containers**: Run `docker compose restart pipelines`
 
 **Important Note**: The current system includes a pre-generated index for demonstration. You must replace this with your own document and regenerate the index, as the original document is not publicly available.
 
@@ -268,11 +268,11 @@ To use a different Ollama model:
 
 1. Pull the model: `docker exec ollama ollama pull <model-name>`
 2. Update `ollama_model` in `rag_pipeline.py` or admin panel 
-3. Restart: `docker-compose restart pipelines`
+3. Restart: `docker compose restart pipelines`
 
 ### GPU Support for Ollama
 
-To enable GPU support for Ollama, uncomment the GPU section in `docker-compose.yml`:
+To enable GPU support for Ollama, uncomment the GPU section in `docker compose.yml`:
 
 ```yaml
 deploy:
@@ -290,26 +290,26 @@ deploy:
 
 ```bash
 # View all logs
-docker-compose logs
+docker compose logs
 
 # View specific service logs
-docker-compose logs pipelines
-docker-compose logs ollama
-docker-compose logs open-webui
+docker compose logs pipelines
+docker compose logs ollama
+docker compose logs open-webui
 
 # Follow logs in real-time
-docker-compose logs -f pipelines
+docker compose logs -f pipelines
 ```
 
 ### Clean Reset
 
 ```bash
 # Stop and remove everything (keeps volumes)
-docker-compose down
+docker compose down
 
 # Remove volumes too (complete reset)
-docker-compose down -v
+docker compose down -v
 
 # Rebuild and start fresh
-docker-compose up -d
+docker compose up -d
 ```
