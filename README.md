@@ -286,6 +286,63 @@ deploy:
           count: 1
           capabilities: [gpu]
 ```
+## Proxy Setup & Troubleshooting (If You're on a Corporate/University Network)
+
+Some networks force traffic through a proxy. When that happens, the system may fail with errors like:
+
+- `Ollama network problem`
+- `DNS lookup failure for: ollama`
+- RAG pipeline returning **HTML / Proxy Error / 502**
+
+This means the proxy is intercepting container-to-container traffic. Use the steps below.
+
+---
+
+### 1. Use Your Host IP Instead of `ollama` / `pipelines`
+
+In **OpenWebUI → Settings → Connections**:
+
+- **Ollama API Base URL:**  
+  `http://YOUR-HOST-IP:11434`
+- **OpenAI API Base URL (pipelines):**  
+  `http://YOUR-HOST-IP:9099`
+
+Example:  
+`http://172.16.202.47:11434`  
+`http://172.16.202.47:9099`
+<img width="973" height="581" alt="image" src="https://github.com/user-attachments/assets/ef6a6a56-ac24-487e-90f1-7ede6dd12fa1" />
+
+Using IP avoids proxy DNS hijacking and will allow traffic to be routed.
+
+---
+
+### 2. Fix the RAG Pipeline (rag_pipeline.py)
+
+The pipeline defaults to `http://ollama:11434`, which breaks behind proxies.
+
+Edit `pipelines/rag_pipeline.py`:
+
+```python
+import os
+
+OLLAMA_BASE_URL = os.getenv(
+    "OLLAMA_BASE_URL",
+    "http://YOUR-HOST-IP:11434"  # set your IP here
+)
+
+llm = ChatOllama(  # or OllamaChatCompletion
+    model="llama3.2:3b",
+    base_url=OLLAMA_BASE_URL,
+)
+```
+### 3.Add NO_PROXY Rules to docker-compose.yml (Optional)
+add to docker-compose.yml for each service 
+ ```docker-compose.yml
+environment:
+  - OLLAMA_BASE_URL=http://YOUR-HOST-IP:11434
+  - NO_PROXY=ollama,pipelines,open-webui,localhost,127.0.0.1,YOUR-HOST-IP
+  - no_proxy=ollama,pipelines,open-webui,localhost,127.0.0.1,YOUR-HOST-IP
+```
 
 ## Support
 
