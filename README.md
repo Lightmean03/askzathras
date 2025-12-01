@@ -286,7 +286,7 @@ deploy:
           count: 1
           capabilities: [gpu]
 ```
-## Proxy Setup & Troubleshooting (If You're on a Corporate/University Network)
+## Proxy Setup
 
 Some networks force traffic through a proxy. When that happens, the system may fail with errors like:
 
@@ -359,6 +359,19 @@ docker compose logs open-webui
 
 # Follow logs in real-time
 docker compose logs -f pipelines
+```
+#### No Ollama models in OpenWebUI
+```bash
+docker exec ollama ollama list
+docker exec -it open-webui bash -lc 'curl -s http://YOUR-HOST-IP:11434/api/tags'
+
+```
+#### Pipelines Not Detected
+
+```bash
+docker exec -it pipelines bash -lc 'ls /app/pipelines'
+curl -s -H "Authorization: Bearer 0p3n-w3bu!" http://YOUR-HOST-IP:9099/pipelines
+docker compose logs --tail=200 pipelines
 ```
 
 ### Clean Reset
